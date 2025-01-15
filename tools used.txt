@@ -1,5 +1,0 @@
-bing.com/images/create for creating image
-imgupscaler.com for upscaling image
-croppola.com for cropping upscaled image
-remove.bg to remove background of image
-www3.lunapic.com to replace the image colors with company colors
