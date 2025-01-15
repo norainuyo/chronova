@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'Cormorant';
+    src: url('../fonts/Cormorant-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('../fonts/Lora-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../fonts/Cinzel-VariableFont_wght.ttf') format('truetype');
+}
+
+/* 
+Importing font-faces named Cormorant, Lora and Cinzel respectively, each to be used in the following cases:
+    1) Cormorant: Headings/Names and important texts
+    2) Lora: Content texts and in similarly important places
+    3) Cinzel: For the company name 
+
+To use these fonts, simply follow the following syntax:
+
+    font-family: '<imported font name>', <backup font family incase the imported one is not supported>
+
+For example, using the Lora font family would look like this:
+
+    font-family: "Lora", serif;
+*/
+
+:root{
+    /*
+    Using variables to store the website's color scheme. 
+    These are stored in the root element of the document, and in the external css file for global scope.
+    
+    To use these variables, use the following syntax:
+        var(<variable name>)
+
+    For example, to set font color as medium blue, we will write:
+        color: var(--medium-blue);
+    */
+
+
+    --darkest-blue: #06141b;
+    --darker-blue: #11212d;
+    --dark-blue: #253745;
+    --medium-blue: #4a5c6a;
+    --light-blue: #9ba8ab;
+    --lighter-blue: #ccd0cf;
+    --lightest-blue: #e1e4e3;
+}
+
+body{
+    background-color: var(--lighter-blue);
+    margin: 0; /* to remove unnecessary gaps */
+}
+
+.center{ 
+    /* utility class to center a contents inside a container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header{
+    user-select: none;
+    height: 120px;
+    width: 100%;
+    padding-left: 10%;
+    z-index: 3;
+    background-color: var(--darkest-blue);
+    color: var(--lighter-blue);
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    flex-direction: row;
+    transition: all 0.4s ease-in-out;
+    border-bottom: 1px solid var(--dark-blue);
+}   
+
+#header--nav{
+    width: 80%;
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+}
+
+#company--logo_wrapper{
+    height: 100%;
+    border-right: 1px solid var(--dark-blue);
+    padding: 0 2% 0 1%;
+}
+
+#company--logo{
+    all: unset;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    color: var(--lighter-blue);
+    align-items: center;
+    font-family: 'Cinzel', serif;
+    font-size: 200%;
+    cursor: pointer;
+}
+
+#logo--image{
+    height: 100%;
+}
+
+#nav--link_wrapper{
+    flex: 1;
+    border-right: 1px solid var(--dark-blue);
+}
+
+#nav--link_wrapper ul{
+    margin: 0;
+    width: 100%;
+    padding: 0 5%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav--link{
+    all: unset;
+    padding: 4px;
+    cursor: pointer;
+    font-size: 100%;
+    transition: color  0.3s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    &:hover{
+        color: var(--light-blue);
+    }
+    
+    &::after{
+        position: absolute;
+        content: '';
+        width: 0%;
+        left: 0;
+        height: 0.5px;
+        border-radius: 20px;
+        background-color: var(--lighter-blue); 
+        transition: all 0.3s ease-in-out;
+        align-self: flex-end;
+    }
+
+    &:hover:after{
+        width: 100%;
+        background-color: var(--light-blue);
+    }
+}
+
+.link--seperator{
+    height: 20px;
+    width: 0.5px;
+    background-color: var(--dark-blue);
+}
+
